@@ -47,7 +47,7 @@ if __name__ == '__main__':
 	prediction_dir = "/kaggle/input/eorssd/test-labels"
 	model_dir = "/kaggle/working/FSMINet-main/model_save/FSMINet.pth"
 	
-	img_name_list = glob.glob(image_dir + '*.png')
+	img_name_list = glob.glob(image_dir + '*.jpg')
 	
 	# --------- Load the data ---------
 	test_salobj_dataset = SalObjDataset(img_name_list = img_name_list, lbl_name_list = [],transform=transforms.Compose([Rescale(384),ToTensor(flag=0)]))
