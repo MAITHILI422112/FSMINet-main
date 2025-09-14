@@ -3,7 +3,7 @@ import torch
 from torch.autograd import Variable
 from torch.utils.data import DataLoader
 from torchvision import transforms
-
+import os
 from PIL import Image
 import glob
 from tqdm import tqdm
@@ -43,8 +43,9 @@ def save_output(image_name,pred,d_dir):
 
 if __name__ == '__main__':
 	# --------- Define the address and image format ---------
-	image_dir = "/kaggle/input/eorssd/test-images"
-	prediction_dir = "/kaggle/input/eorssd/test-labels"
+	image_dir = "/kaggle/input/eorssd/test-images/"
+	prediction_dir = "/kaggle/working/test_results/"
+	os.makedirs(prediction_dir, exist_ok=True)
 	model_dir = "/kaggle/working/FSMINet-main/model_save/FSMINet.pth"
 	
 	img_name_list = glob.glob(image_dir + '*.jpg')
