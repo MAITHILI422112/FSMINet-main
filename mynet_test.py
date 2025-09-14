@@ -43,11 +43,11 @@ def save_output(image_name,pred,d_dir):
 
 if __name__ == '__main__':
 	# --------- Define the address and image format ---------
-	image_dir = ""
-	prediction_dir = ""
-	model_dir = ""
+	image_dir = "/kaggle/input/eorssd/test-images"
+	prediction_dir = "/kaggle/input/eorssd/test-labels"
+	model_dir = "/kaggle/working/FSMINet-main/model_save/FSMINet.pth"
 	
-	img_name_list = glob.glob(image_dir + '*.jpg')
+	img_name_list = glob.glob(image_dir + '*.png')
 	
 	# --------- Load the data ---------
 	test_salobj_dataset = SalObjDataset(img_name_list = img_name_list, lbl_name_list = [],transform=transforms.Compose([Rescale(384),ToTensor(flag=0)]))
